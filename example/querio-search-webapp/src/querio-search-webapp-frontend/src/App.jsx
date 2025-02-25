@@ -78,10 +78,10 @@ export default function App() {
     };
 
   return (
-    <div className="App">
+    <div className="App" style={{ marginLeft: "4rem", alignItems: "left"}}>
       <h1>Querio Search</h1>
 
-      <form onSubmit={handleSubmit} style={{ marginBottom: "1rem" }}>
+      <form onSubmit={handleSubmit} style={{ display: "flex", alignItems: "center", marginBottom: "1rem" }}>
         <input
           style={{ padding: 8, width: 300 }}
           type="text"
@@ -97,14 +97,10 @@ export default function App() {
       </form>
 
       <div style={{ display: "flex", alignItems: "center", marginBottom: 16 }}>
-        <p style={{ margin: 0, padding: 0, marginRight: 8 }}>
-          Selected Chain:{" "}
-          <strong>
+      <div style={{ fontSize: 13, color: "#222", marginTop: 2 }}>Selected Chain:{" "}
             {chain === 0
               ? "All"
-              : Chains[chain - 1]?.title || `Chain #${chain}`}
-          </strong>
-        </p>
+              : Chains[chain - 1]?.title || `Chain #${chain}`}</div>
 
         <Filter onSelectedChain={handleSelectedChain} />
       </div>
@@ -113,9 +109,7 @@ export default function App() {
         <>
           {/* Show results summary */}
           {searchResults.total > 0 && (
-            <p>
-              About {searchResults.total} results in {searchResults.duration} ms
-            </p>
+            <div style={{ fontSize: 13, color: "#555", marginTop: 2 }}>About {searchResults.total} results in {searchResults.duration} ms</div>
           )}
           {performedSearch && searchResults.total === 0 && query.trim() !== "" && (
             <p>

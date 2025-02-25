@@ -23,8 +23,8 @@ export default function Item({ item }) {
   const chainValue = parseInt(chain ?? 0, 10);
 
   return (
-    <div style={{ padding: "1rem 0" }}>
-      <div style={{ display: "flex", gap: "1rem" }}>
+    <div style={{ padding: "1rem 0", textAlign: "left", display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
         <img
           src={imageUrl}
           alt="avatarLogo"
@@ -47,10 +47,23 @@ export default function Item({ item }) {
         </div>
       </div>
 
-      <div style={{ marginLeft: 56, marginTop: 8 }}>
+      <div style={{ marginTop: "0.5rem" }}>
         <a href={url} style={{ color: "#0066cc", textDecoration: "none", fontSize: 20 }}>
           {trimmedHeading || title}
         </a>
+
+        <div
+          style={{
+            fontSize: 15,
+            color: "#555",
+            marginTop: 2,
+            maxWidth: "60%", // Ensures wrapping within container
+            wordWrap: "break-word", // Breaks long words
+            whiteSpace: "normal", // Allows text to wrap
+          }}
+        >
+          {snippet}
+        </div>
 
         {chainValue > 0 && Chains[chainValue - 1] && (
           <div style={{ marginTop: 4 }}>
