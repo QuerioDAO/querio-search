@@ -5,7 +5,7 @@ import { QuerioSearch, Chains } from "../../../../../index.js";
 
 import QuerioDark from "../../../../../assets/querio_dark.svg";
 import QuerioLight from "../../../../../assets/querio_light.svg";
-import SearchIcon from "../../../../../assets/Search.svg";
+import SearchIcon from "../../../../../assets/searchIcon.svg";
 
 export default function App() {
   const [query, setQuery] = useState("");
