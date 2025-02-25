@@ -1,8 +1,7 @@
 // Item.jsx
 
 import React, { useState } from "react";
-import altLogo from "./assets/altLogo.svg";
-
+import altLogo from "../../../../../assets/altLogo.svg";
 import { Chains } from "../../../../../index.js";
 
 export default function Item({ item }) {

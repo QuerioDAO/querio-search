@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
-import "./App.css"; // optional: your default styles
+import "./App.css"; 
 import Item from "./Item.jsx";
 import { QuerioSearch, Chains } from "../../../../../index.js";
+
 import QuerioDark from "../../../../../assets/querio_dark.svg";
 import QuerioLight from "../../../../../assets/querio_light.svg";
+import SearchIcon from "../../../../../assets/Search.svg";
 
 export default function App() {
   const [query, setQuery] = useState("");
@@ -73,22 +75,52 @@ export default function App() {
     <div className="App" style={{ marginLeft: "4rem", textAlign: "left" }}>
       <h1>Querio Search</h1>
 
-      {/* Search Form */}
       <form onSubmit={handleSubmit} style={{ display: "flex", alignItems: "center", marginBottom: "1rem" }}>
-        <input
-          style={{ padding: 8, width: 300 }}
-          type="text"
-          placeholder="Search with Querio"
-          value={query}
-          onChange={(e) => {
-            setQuery(e.target.value);
-            setPerformedSearch(false);
-          }}
-        />
+        <div style={{ position: "relative", display: "flex", alignItems: "center" }}>
+          <a
+            href="https://querio.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              position: "absolute",
+              left: 10,
+              top: "50%",
+              transform: "translateY(-50%)",
+            }}
+          >
+            <img
+              src={QuerioLight}
+              alt="Querio Logo"
+              style={{
+                width: 20,
+                height: 20,
+              }}
+            />
+          </a>
+
+          <input
+            style={{
+              padding: "8px 8px 8px 40px",
+              width: "30rem",
+              height: "1.5rem",
+              border: "1px solid #ccc",
+              borderRadius: "4px",
+            }}
+            type="text"
+            placeholder="Search with Querio"
+            value={query}
+            onChange={(e) => {
+              setQuery(e.target.value);
+              setPerformedSearch(false);
+            }}
+          />
+        </div>
+
         <button type="submit" style={{ marginLeft: 8, padding: "8px 16px" }}>
           Search
         </button>
       </form>
+
 
       {/* ComboBox for Chain Selection */}
       <div style={{ display: "flex", alignItems: "center", marginBottom: 16 }}>
