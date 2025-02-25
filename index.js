@@ -101,3 +101,37 @@ export class QuerioSearch {
     return result;
   }
 }
+
+export const Chains = [
+  { title: "ICP" },
+  { title: "ETH" },
+  { title: "XLM" },
+  { title: "NEAR" },
+  { title: "BNB" },
+  { title: "SOL" },
+  { title: "ADA" },
+  { title: "DOT" },
+  { title: "MATIC" },
+  { title: "ARB" },
+  { title: "OP" },
+];
+
+export const ChainMap = {
+  icp: 1,
+  eth: 2,
+  xlm: 3,
+  near: 4,
+  bnb: 5,
+  sol: 6,
+  ada: 7,
+  dot: 8,
+  matic: 9,
+  arb: 10,
+  op: 11
+};
+
+export const ReverseChainMap = Object.keys(ChainMap).reduce((acc, key) => {
+  const value = ChainMap[key];
+  acc[value] = key;
+  return acc;
+}, {});

@@ -1,0 +1,19 @@
+{
+  "canisters": {
+    "querio-search-webapp-frontend": {
+      "source": [
+        "src/querio-search-webapp-frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "querio-search-webapp-frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}

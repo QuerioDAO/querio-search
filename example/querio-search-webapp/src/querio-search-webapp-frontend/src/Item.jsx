@@ -1,0 +1,65 @@
+// Item.jsx
+
+import React, { useState } from "react";
+import altLogo from "./assets/altLogo.svg";
+
+import { Chains } from "../../../../../index.js";
+
+export default function Item({ item }) {
+  // Extract fields from the result item
+  const { url, title, heading, icon, icon_data, snippet, chain } = item;
+  let trimmedHeading = heading || "";
+  if (heading?.startsWith(title + "/")) {
+    trimmedHeading = heading.substring(title.length + 1);
+  }
+
+  let avatarLogo = icon_data || icon || altLogo;
+  const [imageUrl, setImageUrl] = useState(avatarLogo);
+
+  const handleImageError = () => {
+    setImageUrl(altLogo);
+  };
+
+  const chainValue = parseInt(chain ?? 0, 10);
+
+  return (
+    <div style={{ padding: "1rem 0" }}>
+      <div style={{ display: "flex", gap: "1rem" }}>
+        <img
+          src={imageUrl}
+          alt="avatarLogo"
+          onError={handleImageError}
+          style={{ width: 40, height: 40 }}
+        />
+        <div>
+          <a
+            href={url}
+            style={{
+              color: "blue",
+              fontSize: 18,
+              textDecoration: "none",
+              lineHeight: "24px",
+            }}
+          >
+            {title}
+          </a>
+          <div style={{ fontSize: 12, color: "#444", marginTop: 2 }}>{url}</div>
+        </div>
+      </div>
+
+      <div style={{ marginLeft: 56, marginTop: 8 }}>
+        <a href={url} style={{ color: "#0066cc", textDecoration: "none", fontSize: 20 }}>
+          {trimmedHeading || title}
+        </a>
+
+        {chainValue > 0 && Chains[chainValue - 1] && (
+          <div style={{ marginTop: 4 }}>
+            <a style={{ fontSize: 14, color: "#006691", textDecoration: "none" }}>
+              {Chains[chainValue - 1].title}
+            </a>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
