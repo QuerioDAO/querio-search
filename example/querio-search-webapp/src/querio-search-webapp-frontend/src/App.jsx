@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./App.css"; 
+import "./App.css";
 import Item from "./Item.jsx";
 import { QuerioSearch, Chains } from "../../../../../index.js";
 
@@ -76,7 +76,8 @@ export default function App() {
       <h1>Querio Search</h1>
 
       <form onSubmit={handleSubmit} style={{ display: "flex", alignItems: "center", marginBottom: "1rem" }}>
-        <div style={{ position: "relative", display: "flex", alignItems: "center" }}>
+        <div style={{ position: "relative", display: "flex", alignItems: "center", width: "30rem" }}>
+          {/* Clickable QuerioLight Logo */}
           <a
             href="https://querio.io"
             target="_blank"
@@ -98,13 +99,15 @@ export default function App() {
             />
           </a>
 
+          {/* Search Input */}
           <input
             style={{
-              padding: "8px 8px 8px 40px",
-              width: "30rem",
+              padding: "10px 45px 10px 40px", 
+              width: "100%",
               height: "1.5rem",
               border: "1px solid #ccc",
               borderRadius: "4px",
+              fontSize: "16px",
             }}
             type="text"
             placeholder="Search with Querio"
@@ -114,13 +117,34 @@ export default function App() {
               setPerformedSearch(false);
             }}
           />
+
+          <button
+            type="submit"
+            style={{
+              position: "absolute",
+              right: 4,
+              top: "50%",
+              transform: "translateY(-68%)", 
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              display: "flex", 
+              alignItems: "center",
+              justifyContent: "center",
+              height: "100%",
+            }}
+          >
+            <img
+              src={SearchIcon}
+              alt="Search"
+              style={{
+                width: 24,
+                height: 24,
+              }}
+            />
+          </button>
         </div>
-
-        <button type="submit" style={{ marginLeft: 8, padding: "8px 16px" }}>
-          Search
-        </button>
       </form>
-
 
       {/* ComboBox for Chain Selection */}
       <div style={{ display: "flex", alignItems: "center", marginBottom: 16 }}>
