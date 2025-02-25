@@ -1,0 +1,19 @@
+{
+  "name": "querio-search",
+  "version": "1.0.0",
+  "description": "Querio Search",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QuerioDAO/querio-search.git"
+  },
+  "author": "Querio",
+  "license": "SEE LICENSE IN LICENSE",
+  "dependencies": {
+    "@dfinity/agent": "^2.3.0",
+    "isomorphic-fetch": "^3.0.0"
+  }
+}
