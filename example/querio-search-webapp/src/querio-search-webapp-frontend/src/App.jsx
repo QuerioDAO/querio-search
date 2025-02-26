@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import Item from "./Item.jsx";
-import { QuerioSearch, Chains } from "../../../../../index.js";
+import { QuerioSearch, Chains } from "@querio/querio-search";
 
-import QuerioDark from "../../../../../assets/querio_dark.svg";
-import QuerioLight from "../../../../../assets/querio_light.svg";
-import SearchIcon from "../../../../../assets/searchIcon.svg";
+import QuerioDark from "@querio/querio-search/assets/querio_dark.svg";
+import QuerioLight from "@querio/querio-search/assets/querio_light.svg";
+import SearchIcon from "@querio/querio-search/assets/searchIcon.svg";
 
 export default function App() {
   const [query, setQuery] = useState("");

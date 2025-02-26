@@ -1,8 +1,8 @@
 // Item.jsx
 
 import React, { useState } from "react";
-import altLogo from "../../../../../assets/altIcon.svg";
-import { Chains } from "../../../../../index.js";
+import altLogo from "@querio/querio-search/assets/altIcon.svg";
+import { Chains } from "@querio/querio-search";
 
 export default function Item({ item }) {
   // Extract fields from the result item
