@@ -9,7 +9,7 @@ Welcome to the **querio-search** npm package! This package enables seamless inte
 To install the querio-search package, run:
 
 ```sh
-npm install querio-search
+npm install @querio/querio-search
 ```
 
 ## Supported Chains
@@ -38,7 +38,7 @@ A functional example WebApp is available in `example/querio-search-webapp`, demo
 A quick example on how to import and configure querio-search in your project:
 
 ```js
-import QuerioSearch from 'querio-search';
+import QuerioSearch from '@querio/querio-search';
 
 const search = new QuerioSearch();
 
