@@ -31,7 +31,6 @@ export default function App() {
     }
 
     try {
-      console.log('doSearch chain', selectedChain);
       const result = await client.search(query, page, selectedChain);
       setSearchResults((prev) => ({
         items: append ? [...prev.items, ...result.items] : result.items,
@@ -63,7 +62,6 @@ export default function App() {
   // Handle chain selection from ComboBox
   const handleSelectedChain = (e) => {
     const selectedChain = Number(e.target.value);
-    console.log("Selected Chain:", selectedChain);
     setChain(selectedChain);
     setPage(1);
     if (query.trim()) {
@@ -72,11 +70,9 @@ export default function App() {
   };
 
   return (
-    <div className="App" style={{ marginLeft: "4rem", textAlign: "left" }}>
-      <h1>Querio Search</h1>
-
-      <form onSubmit={handleSubmit} style={{ display: "flex", alignItems: "center", marginBottom: "1rem" }}>
-        <div style={{ position: "relative", display: "flex", alignItems: "center", width: "30rem" }}>
+    <div className="App" style={{ textAlign: "left" }}>
+      <form onSubmit={handleSubmit} style={{ marginLeft: "0px", paddingLeft: "0px", display: "flex", alignItems: "center", marginBottom: "2rem" }}>
+        <div style={{ marginLeft: "0px", paddingLeft: "0px", position: "relative", display: "flex", alignItems: "center", width: "30rem" }}>
           {/* Clickable QuerioLight Logo */}
           <a
             href="https://querio.io"
@@ -102,7 +98,7 @@ export default function App() {
           {/* Search Input */}
           <input
             style={{
-              padding: "10px 45px 10px 40px", 
+              padding: "10px 45px 10px 40px",
               width: "100%",
               height: "1.5rem",
               border: "1px solid #ccc",
@@ -124,11 +120,11 @@ export default function App() {
               position: "absolute",
               right: 4,
               top: "50%",
-              transform: "translateY(-68%)", 
+              transform: "translateY(-70%)",
               background: "none",
               border: "none",
               cursor: "pointer",
-              display: "flex", 
+              display: "flex",
               alignItems: "center",
               justifyContent: "center",
               height: "100%",
@@ -146,58 +142,62 @@ export default function App() {
         </div>
       </form>
 
-      {/* ComboBox for Chain Selection */}
-      <div style={{ display: "flex", alignItems: "center", marginBottom: 16 }}>
-        <div style={{ fontSize: 13, color: "#222", marginRight: 8 }}>Selected Chain:</div>
+      <hr style={{ border: "none", borderTop: "1px solid #ccc", width: "100%", margin: "1rem 0" }} />
 
-        <select
-          value={chain}
-          onChange={handleSelectedChain}
-          style={{
-            padding: "6px 12px",
-            fontSize: "14px",
-            border: "1px solid #ccc",
-            borderRadius: "4px",
-            cursor: "pointer",
-          }}
-        >
-          <option value={0}>All</option>
-          {Chains.map((c, index) => (
-            <option key={index} value={index + 1}>
-              {c.title}
-            </option>
-          ))}
-        </select>
+      <div style={{ marginLeft: "10%", textAlign: "left" }}>
+        {/* ComboBox for Chain Selection */}
+        <div style={{ display: "flex", alignItems: "center", marginBottom: 16 }}>
+          <div style={{ fontSize: 13, color: "#222", marginRight: 8 }}>Selected Chain:</div>
+
+          <select
+            value={chain}
+            onChange={handleSelectedChain}
+            style={{
+              padding: "6px 12px",
+              fontSize: "14px",
+              border: "1px solid #ccc",
+              borderRadius: "4px",
+              cursor: "pointer",
+            }}
+          >
+            <option value={0}>All</option>
+            {Chains.map((c, index) => (
+              <option key={index} value={index + 1}>
+                {c.title}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {/* Search Results */}
+        {!loading && (
+          <>
+            {searchResults.total > 0 && (
+              <div style={{ fontSize: 13, color: "#555", marginTop: 2 }}>
+                About {searchResults.total} results in {searchResults.duration} ms
+              </div>
+            )}
+            {performedSearch && searchResults.total === 0 && query.trim() !== "" && (
+              <p>
+                Your search – <b>{query}</b> – did not match any documents.
+              </p>
+            )}
+
+            {searchResults.items.map((item, idx) => (
+              <Item key={idx} item={item} />
+            ))}
+
+            {searchResults.pages > 1 && page < searchResults.pages && (
+              <button
+                style={{ margin: "20px 0", padding: "10px 20px" }}
+                onClick={() => setPage((p) => p + 1)}
+              >
+                More Results
+              </button>
+            )}
+          </>
+        )}
       </div>
-
-      {/* Search Results */}
-      {!loading && (
-        <>
-          {searchResults.total > 0 && (
-            <div style={{ fontSize: 13, color: "#555", marginTop: 2 }}>
-              About {searchResults.total} results in {searchResults.duration} ms
-            </div>
-          )}
-          {performedSearch && searchResults.total === 0 && query.trim() !== "" && (
-            <p>
-              Your search – <b>{query}</b> – did not match any documents.
-            </p>
-          )}
-
-          {searchResults.items.map((item, idx) => (
-            <Item key={idx} item={item} />
-          ))}
-
-          {searchResults.pages > 1 && page < searchResults.pages && (
-            <button
-              style={{ margin: "20px 0", padding: "10px 20px" }}
-              onClick={() => setPage((p) => p + 1)}
-            >
-              More Results
-            </button>
-          )}
-        </>
-      )}
     </div>
   );
 }
