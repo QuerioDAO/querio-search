@@ -1,0 +1,22 @@
+type TokenFrequency = 
+ record {
+   frequency: nat16;
+   token: text;
+ };
+type Engine = 
+ service {
+   add: (text, vec TokenFrequency, text, text, text, text, text, nat,
+    text) -> (bool);
+   add_to_feed: (text, text, text, text, text, text, text) -> (int);
+   autoscale: () -> (nat);
+   autoscale_feed: () -> (nat);
+   balance: () -> (nat) query;
+   get_feed: () -> (vec text) query;
+   get_workers: () -> (vec text) query;
+   remove: (text, vec TokenFrequency) -> (bool);
+   update: (text, vec TokenFrequency, text, text, text, text, text, nat,
+    text) -> (bool);
+   upgrade: (blob) -> ();
+   upgrade_feed: (blob) -> ();
+ };
+service : () -> Engine

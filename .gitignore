@@ -143,7 +143,7 @@ declarations/.DS_Store
 .dfx/
 
 # generated files
-**/declarations/
+example/declarations/
 
 # rust
 target/

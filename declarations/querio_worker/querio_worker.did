@@ -1,0 +1,32 @@
+type Worker = 
+ service {
+   add: (text, vec TokenFrequency, text, text, text, text, text, nat,
+    text) -> (nat32);
+   balance: () -> (nat) query;
+   remove: (text, vec TokenFrequency) -> (bool);
+   search: (text, nat, nat) -> (SearchResult) query;
+   suggest: (text, nat) -> (vec text) query;
+   update: (text, vec TokenFrequency, text, text, text, text, text, nat,
+    text) -> (bool);
+ };
+type TokenFrequency = 
+ record {
+   frequency: nat16;
+   token: text;
+ };
+type SearchResultItem = 
+ record {
+   chain: nat;
+   heading: text;
+   icon_data: text;
+   snippet: text;
+   title: text;
+   url: text;
+ };
+type SearchResult = 
+ record {
+   items: vec SearchResultItem;
+   pages: nat;
+   total: nat;
+ };
+service : () -> Worker
