@@ -10,6 +10,9 @@
     "type": "git",
     "url": "git+https://github.com/QuerioDAO/querio-search.git"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "author": "Querio",
   "license": "SEE LICENSE IN LICENSE",
   "dependencies": {
