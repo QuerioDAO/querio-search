@@ -156,3 +156,4 @@ dist/
 # environment variables
 .env
 
+cmds.txt
