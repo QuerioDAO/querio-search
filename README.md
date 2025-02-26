@@ -95,7 +95,7 @@ This package is **open-source** and welcomes contributions! Feel free to submit 
 
 ## License
 
-This project is licensed under the **MIT License**, but **requires compliance with the branding and attribution requirements outlined above**. See the LICENSE file for more details.
+This project is licensed under the **AGPL-3.0 License**, but **requires compliance with the branding and attribution requirements outlined above**. See the LICENSE file for more details.
 
 ## Contact
 
