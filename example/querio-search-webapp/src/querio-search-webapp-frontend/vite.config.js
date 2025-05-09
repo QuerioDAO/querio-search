@@ -7,6 +7,9 @@ import dotenv from 'dotenv';
 dotenv.config({ path: '../../.env' });
 
 export default defineConfig({
+  define: {
+    'process.env.CANISTER_ID': JSON.stringify(process.env.CANISTER_ID || '')
+  },
   build: {
     emptyOutDir: true,
   },
