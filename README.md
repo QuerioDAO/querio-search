@@ -62,14 +62,12 @@ To maintain brand consistency and acknowledge Querio’s technology, you must di
 - **Branding Assets**: You must use the official Querio logo, available in the repository under:
   - `/assets/querio_light.svg` (for light backgrounds)
   - `/assets/querio_dark.svg` (for dark backgrounds)
-- **Design Guidelines**: The Querio logo and watermark text must remain unaltered in color, proportion, and readability.
+- **Design Guidelines**: The Querio logo and watermark text must remain unaltered in proportion, and readability.
 - **Removal Prohibition**: You may not remove, obscure, or modify the attribution text or logo.
 
 ### 2. **Usage Restrictions**
 
 - Before using the querio-search package, users must notify us of their intent via our official channels: [X](https://twitter.com/querio_io), [Discord](https://discord.gg/Jvb8Xmzgdv), [OpenChat](https://oc.app/community/qbzct-jaaaa-aaaar-au2gq-cai/?ref=jviq4-waaaa-aaaar-aqq7a-cai), or  [Telegram](https://t.me/+VXpWvtRUSyU0MmFk).
-
-- You **must not** alter, manipulate, or interfere with the search results provided by Querio in any way.
 
 - You **must not** alter, manipulate, or interfere with the search results provided by Querio in any way.
 
