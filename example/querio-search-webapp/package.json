@@ -16,6 +16,6 @@
     "src/querio-search-webapp-frontend"
   ],
   "dependencies": {
-    "@querio/querio-search": "^1.0.4"
+    "@querio/querio-search": "^1.0.5"
   }
 }
