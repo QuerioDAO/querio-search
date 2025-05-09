@@ -6,6 +6,8 @@ Welcome to the **querio-search** npm package! This package enables seamless inte
 
 ## Installation
 
+**Prerequisite:** Node.js ≥ 22.0.0 & npm ≥ 10.0.0
+
 To install the querio-search package, run:
 
 ```sh
